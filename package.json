@@ -6,7 +6,7 @@
   "scripts": {
     "test": "vitest",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "build-storybook -o storybook-static",
+    "build-storybook": "storybook build -o build",
     "chromatic": "chromatic --project-token=chpt_4f0aee2127ea083"
   },
   "keywords": [],
