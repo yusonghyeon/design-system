@@ -1,0 +1,73 @@
+{
+  "root": true,
+  "extends": [
+    "plugin:prettier/recommended",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:react-hooks/recommended",
+    "plugin:storybook/recommended"
+  ],
+  "env": {
+    "es6": true,
+    "browser": true,
+    "commonjs": true,
+    "node": true
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": "latest"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "no-console": [
+      "error",
+      {
+        "allow": ["warn", "error"]
+      }
+    ],
+    "react-hooks/exhaustive-deps": [
+      "warn",
+      {
+        "additionalHooks": "(useUpdateEffect)"
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": ["plugin:@typescript-eslint/recommended"],
+      "parser": "@typescript-eslint/parser",
+      "rules": {}
+    },
+    {
+      "files": ["*.spec.ts", "*.spec.tsx"],
+      "env": {
+        "jest/globals": true
+      },
+      "extends": ["plugin:jest/recommended"],
+      "rules": {
+        "react/display-name": "off"
+      }
+    },
+    {
+      "files": ["*.stories.ts", "*.stories.tsx"],
+      "extends": ["plugin:storybook/recommended"],
+      "rules": {
+        "react/display-name": "off",
+        "@typescript-eslint/no-unused-vars": [
+          "error",
+          {
+            "argsIgnorePattern": "^args$"
+          }
+        ],
+        "react-hooks/rules-of-hooks": "off"
+      }
+    }
+  ]
+}
