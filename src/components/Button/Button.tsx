@@ -1,3 +1,5 @@
+import { button } from './button.css';
+
 export type ButtonProps = {
   label: string;
   onClick?: () => void;
@@ -6,5 +8,9 @@ export type ButtonProps = {
 export const Button = (props: ButtonProps) => {
   const { label, onClick } = props;
 
-  return <button onClick={onClick}>{label}</button>;
+  return (
+    <button className={`${button}`} onClick={onClick}>
+      {label}
+    </button>
+  );
 };
